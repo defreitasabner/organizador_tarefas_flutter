@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:meu_primeiro_app/components/task.dart';
 import 'package:meu_primeiro_app/data/task_inherited.dart';
 import 'package:meu_primeiro_app/screens/form_screen.dart';
 

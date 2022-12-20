@@ -8,15 +8,17 @@ class Task extends StatefulWidget {
   final String picture;
   final int difficultyLevel;
 
-  const Task(this.name, this.picture, this.difficultyLevel, {super.key});
+  Task(this.name, this.picture, this.difficultyLevel, {super.key});
+
+  // Essa informação precisa ficar guardada, logo precisa ficar aqui
+  // Se ela ficar no estado, ela é perdida toda vez que o widget é refeito
+  int level = 0;
 
   @override
   State<Task> createState() => _TaskState();
 }
 
 class _TaskState extends State<Task> {
-  
-  int level = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,7 @@ class _TaskState extends State<Task> {
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            level++;
+                            widget.level++;
                           });
                         }, 
                         child: Column(
@@ -113,11 +115,11 @@ class _TaskState extends State<Task> {
                     width: 200,
                     child: LinearProgressIndicator(
                       color: Colors.white,
-                      value: (widget.difficultyLevel > 0) ? ( level / widget.difficultyLevel ) / 10 : 1 ,
+                      value: (widget.difficultyLevel > 0) ? ( widget.level / widget.difficultyLevel ) / 10 : 1 ,
                     ),
                   ),
                   Text(
-                    'Nível $level',
+                    'Nível ${widget.level}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16
