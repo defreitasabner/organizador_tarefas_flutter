@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:meu_primeiro_app/components/task.dart';
+import 'package:meu_primeiro_app/data/task_inherited.dart';
 import 'package:meu_primeiro_app/screens/form_screen.dart';
 
 class InitialScreen extends StatefulWidget {
@@ -23,17 +24,8 @@ class _InitialScreenState extends State<InitialScreen> {
           ),
         ),
         body: ListView(
-          children: const [
-            Task('Aprender Flutter', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 3),
-            Task('Aprender React', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 3),
-            Task('Aprender Express', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 4),
-            Task('Aprender Express', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 2),
-            Task('Aprender Express', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 2),
-            Task('Aprender Express', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 1),
-            Task('Aprender Express', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 3),
-            Task('Aprender Express', 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large', 4),
-            SizedBox(height: 80,)
-          ],
+          /// Acessando dados de uma Inherited Widget (precisa ser mãe de todas) 
+          children: TaskInherited.of(context).taskList,
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
