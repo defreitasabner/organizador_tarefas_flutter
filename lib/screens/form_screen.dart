@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:meu_primeiro_app/components/form_input_field.dart';
+import 'package:meu_primeiro_app/data/task_inherited.dart';
 
 class FormScreen extends StatefulWidget {
-  const FormScreen({super.key});
+  const FormScreen({
+    super.key,
+    required this.taskContext
+    });
+
+  final BuildContext taskContext;
 
   @override
   State<FormScreen> createState() => _FormScreenState();
@@ -78,10 +84,18 @@ class _FormScreenState extends State<FormScreen> {
                   ElevatedButton(
                     onPressed: () {
                       if(_formKey.currentState!.validate()) {
+                          // Acessando Inherited Widget
+                          // Precisamos alterar o contexto
+                          // Vamos usar o contexto que veio lá da InitialScreen()
+                          TaskInherited.of(widget.taskContext).newTask(
+                            nameController.text, 
+                            imageController.text, 
+                            int.parse(difficultyController.text)
+                          );
                           // Feedback positivo para o Usuário
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('Nova Tarefa registrada com sucesso!'),
+                              content: Text('Nova Tarefa criada!'),
                               backgroundColor: Colors.green,
                               )
                           );

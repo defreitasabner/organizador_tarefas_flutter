@@ -34,7 +34,10 @@ class _InitialScreenState extends State<InitialScreen> {
               context,
               // Renderiza automaticamente a nova página com um botão de voltar
               MaterialPageRoute(
-                builder: (context) => const FormScreen()
+                // Vamos ignorar o newContext e passar o context de interesse
+                // Para jogar as informações da FormScreen para InitialScreen
+                // Passamos o contexto de InitialScreen() como contexto para FormScreen()
+                builder: (newContext) => FormScreen(taskContext: context,)
               )
             );
           },
