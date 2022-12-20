@@ -37,11 +37,14 @@ class _InitialScreenState extends State<InitialScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const FormScreen()
+              )
+            );
           },
-          child: const Icon(
-            Icons.add
-          ),
+          child: const Icon(Icons.add),
         ),
       );
   }
