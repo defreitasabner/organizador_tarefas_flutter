@@ -26,6 +26,7 @@ class _InitialScreenState extends State<InitialScreen> {
         body: ListView(
           /// Acessando dados de uma Inherited Widget (precisa ser mãe de todas) 
           children: TaskInherited.of(context).taskList,
+          padding: EdgeInsets.only(top: 8, bottom: 64),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
