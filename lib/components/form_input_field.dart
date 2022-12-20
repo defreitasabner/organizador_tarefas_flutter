@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meu_primeiro_app/screens/form_screen.dart';
 
 class FormInputField extends StatefulWidget {
   
@@ -28,7 +27,15 @@ class _FormInputFieldState extends State<FormInputField> {
           setState(() {
           });
         },
+        validator: (String? value) {
+          if(value != null && value.isEmpty) {
+            return 'Insira o nome da Tarefa';
+          } else {
+            return null;
+          }
+        },
         controller: widget.inputController,
+        keyboardType: TextInputType.text,
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
