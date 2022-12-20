@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class FormInputField extends StatefulWidget {
   
   final String inputLabel;
-  TextEditingController inputController;
+  final TextEditingController inputController;
   final String inputHint;
   
-  FormInputField({
+  const FormInputField({
     Key? key,
     required this.inputLabel,
     required this.inputController,
