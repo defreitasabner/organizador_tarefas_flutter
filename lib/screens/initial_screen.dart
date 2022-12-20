@@ -37,8 +37,10 @@ class _InitialScreenState extends State<InitialScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
+            // Navegação Direta para a página FormScreen()
             Navigator.push(
               context,
+              // Renderiza automaticamente a nova página com um botão de voltar
               MaterialPageRoute(
                 builder: (context) => const FormScreen()
               )

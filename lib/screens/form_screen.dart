@@ -78,12 +78,15 @@ class _FormScreenState extends State<FormScreen> {
                   ElevatedButton(
                     onPressed: () {
                       if(_formKey.currentState!.validate()) {
+                          // Feedback positivo para o Usuário
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Nova Tarefa registrada com sucesso!'),
                               backgroundColor: Colors.green,
                               )
                           );
+                          // Retorna para a página anterior (InitialScreen())
+                          Navigator.pop(context);
                       } else {
                         // Não faz nada
                       }
