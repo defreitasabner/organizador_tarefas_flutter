@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:meu_primeiro_app/screens/form_screen.dart';
 
 class FormInputField extends StatefulWidget {
   
   final String inputLabel;
-  final TextEditingController inputController;
+  TextEditingController inputController;
   final String inputHint;
   
-  const FormInputField({
+  FormInputField({
     Key? key,
     required this.inputLabel,
     required this.inputController,
@@ -25,7 +26,6 @@ class _FormInputFieldState extends State<FormInputField> {
       child: TextFormField(
         onChanged: (text) {
           setState(() {
-            // Para cada alteração no input, ele renderiza tudo de novo
           });
         },
         controller: widget.inputController,
